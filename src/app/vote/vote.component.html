@@ -1,3 +1,21 @@
 <p>
   vote works!
 </p>
+
+<div class="container">
+
+  <ul>
+    <li *ngFor="let coll of listeParticipant">
+
+        <img src="{{coll.photoUrl}}" width="200" heigth="200" />
+
+        <img src="https://i.pinimg.com/originals/85/65/50/856550aa773911d00b76b24aaa4bc467.png" width="50" heigth="50" (click)="votePlus(coll.matricule, coll.score)"/>
+        <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Very_sad_emoji_icon_png_grande.png" width="50" heigth="50" (click)="voteMoins(coll.matricule, coll.score)"/>
+
+
+    </li>
+  </ul>
+</div>
+
+
+<img src="https://media2.giphy.com/media/l0HlAIIwxcTSuibDi/giphy.gif?cid=790b76115cda9f5079442f6b77e653cc&rid=giphy.gif" width="200" heigth="200" />

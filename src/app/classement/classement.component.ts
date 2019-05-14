@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Participant } from '../models/Participant';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-classement',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classement.component.css']
 })
 export class ClassementComponent implements OnInit {
+  listeParticipant:Participant[]
 
-  constructor() { }
+  constructor(private _serv:DataService) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+    this._serv.afficherClassement()
+    .subscribe( coll => {this.listeParticipant = coll},
+      error =>{alert('oops gallerie')} );
   }
 
 }

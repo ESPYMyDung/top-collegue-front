@@ -7,20 +7,26 @@
   <div class="col-sm-12">
 
     <form (ngSubmit)="validerAuth()" #creeForm="ngForm">
-      <label>Matricule : </label>
-      <input type="text" name="matriculeColl" #matriculeColl="ngModel" [(ngModel)]="user.matriculeColl" required>
-      <p *ngIf="matriculeColl.hasError('required')" ng-message="required">Le matricule doit etre renseignee</p>
+      <div>
+        <label>Matricule : </label>
+        <input type="text" name="matriculeColl" #matriculeColl="ngModel" [(ngModel)]="user.matriculeColl" required>
+        <p *ngIf="matriculeColl.hasError('required')" ng-message="required">Le matricule doit etre renseignee</p>
+      </div>
 
-      <label>Mot de passe</label>
-      <input type="text" name="motDePasse" #motDePasse="ngModel" [(ngModel)]="user.motDePasse" required>
-      <p *ngIf="motDePasse.hasError('required')" ng-message="required">Le mot de passe doit etre renseignee</p>
+      <div>
+        <label>Mot de passe</label>
+        <input type="text" name="motDePasse" #motDePasse="ngModel" [(ngModel)]="user.motDePasse" required>
+        <p *ngIf="motDePasse.hasError('required')" ng-message="required">Le mot de passe doit etre renseignee</p>
+      </div>
 
+      <div>
+        <label>Photo (optionnel)</label>
+        <input type="text" name="photoUrl" #photoUrl="ngModel" [(ngModel)]="user.photoUrl" required>
+      </div>
+      
       <button type="submit">Valider</button>
     </form>
 
   </div>
-
-
-  <button routerLink="/logout" routerLinkActive="active-link" (click)=deconnecter()>Deconnexion</button>
 
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Utilisateur } from '../models/Utilisateur';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-authentification',
@@ -12,9 +13,8 @@ export class AuthentificationComponent implements OnInit {
 
   constructor(private _serv:DataService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
+  
   validerAuth()
   {
     this._serv.envoyerAuth(this.user)
@@ -22,19 +22,5 @@ export class AuthentificationComponent implements OnInit {
       response => {alert(response.error)},
       () => {} );
   }
-
-  deconnecter()
-  {
-    this._serv.envoyerLogout()
-      .subscribe (valeur => {},
-      response => {alert(response.error)},
-      () => {} );
-  }
-
-  afficher()
-{
-  this.affichage = !this.affichage;
-}
-
 
 }

@@ -1,3 +1,23 @@
 <p>
   classement works!
 </p>
+
+<div class="container">
+
+  <ul>
+    <li *ngFor="let coll of listeParticipant">
+
+      <div class="col-sm-4"> {{coll.score}} </div>
+
+      <div class="col-sm-4">
+        <img src="{{coll.photoUrl}}" width="200" heigth="200"/>
+      </div>
+
+      <div class="col-sm-4">
+        <p>{{coll.nom}}</p>
+        <p>{{coll.prenom}}</p>
+      </div>
+      
+    </li>
+  </ul>
+</div>
