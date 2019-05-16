@@ -2,7 +2,7 @@
   authentification works!
 </p>
 
-<div class="container" p-1>
+<div class="container" >
 
   <div class="col-sm-12">
 
@@ -12,19 +12,25 @@
         <input type="text" name="matriculeColl" #matriculeColl="ngModel" [(ngModel)]="user.matriculeColl" required>
         <p *ngIf="matriculeColl.hasError('required')" ng-message="required">Le matricule doit etre renseignee</p>
       </div>
+      
+      <br/>
 
       <div>
         <label>Mot de passe</label>
         <input type="text" name="motDePasse" #motDePasse="ngModel" [(ngModel)]="user.motDePasse" required>
         <p *ngIf="motDePasse.hasError('required')" ng-message="required">Le mot de passe doit etre renseignee</p>
       </div>
+      
+      <br/>
 
       <div>
         <label>Photo (optionnel)</label>
         <input type="text" name="photoUrl" #photoUrl="ngModel" [(ngModel)]="user.photoUrl" required>
       </div>
       
-      <button type="submit">Valider</button>
+      <br/>
+
+      <button type="submit" class="btn btn-primary" routerLink="/vote" routerLinkActive="active-link">Valider</button>
     </form>
 
   </div>

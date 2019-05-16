@@ -5,11 +5,20 @@
 
 <div class="container">
 
-    <div class="row" >
-      <button routerLink="/vote" routerLinkActive="active-link">Vote</button>
-      <button routerLink="/classement" routerLinkActive="active-link">Classement</button>
-      <button routerLink="/logout" routerLinkActive="active-link" (click)=deconnecter()>Deconnexion</button>
-      <!--<button routerLink="/apropos" routerLinkActive="active-link">A propos</button>-->
+  <div class="row">
+
+    <div class="col">
+      <button class=" btn btn-light" routerLink="/vote" routerLinkActive="active-link">Vote</button>
     </div>
-  
+
+    <div class="col">
+      <button class=" btn btn-light" routerLink="/classement" routerLinkActive="active-link">Classement</button>
+    </div>
+
+    <div class="col align-self-end">
+      <button class="btn btn-dark" routerLink="/logout" routerLinkActive="active-link" (click)=deconnecter()>Deconnexion</button>
+    </div>
+
   </div>
+
+</div>

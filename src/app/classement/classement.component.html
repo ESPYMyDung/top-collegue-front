@@ -6,7 +6,7 @@
 
   <ul>
     <li *ngFor="let coll of listeParticipant">
-
+      <!--
       <div class="col-sm-4"> {{coll.score}} </div>
 
       <div class="col-sm-4">
@@ -17,7 +17,19 @@
         <p>{{coll.nom}}</p>
         <p>{{coll.prenom}}</p>
       </div>
-      
+-->
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">{{coll.score}}</div>
+
+        <img class="card-img-top" src="{{coll.photoUrl}}">
+
+        <div class="card-body">
+          <p class="card-text">{{coll.nom}}</p>
+          <p class="card-text">{{coll.prenom}}</p>
+        </div>
+
+      </div>
+
     </li>
   </ul>
 </div>
