@@ -11,8 +11,8 @@ import { Vote } from '../models/Vote';
   providedIn: 'root'
 })
 export class DataService {
-  private action = new Subject<Participant>(); //NB : utiliser pour deux requetes differentes
-  private listePhoto = new Subject<Participant[]>();
+  private action = new Subject<Participant>();
+  private listePhoto = new Subject<Participant[]>(); //NB : utiliser pour deux requetes differentes
 
   constructor(private _requete:HttpClient) { }
 
@@ -36,14 +36,14 @@ export class DataService {
   }
 
   // - requete POST - 
+  envoyerAuth(user:Utilisateur)
+  {
+    return this._requete.post<Utilisateur>(`${environment.baseUrl}/auth`, user, {withCredentials : true});
+  }
+
   modifierScore(bulletin:Vote)
   {
     return this._requete.post<Participant>(`${environment.backendUrl}/vote`, bulletin, {withCredentials : true});
-  }
-
-   envoyerAuth(user:Utilisateur)
-  {
-    return this._requete.post<Utilisateur>(`${environment.baseUrl}/auth`, user, {withCredentials : true});
   }
 
   envoyerLogout()

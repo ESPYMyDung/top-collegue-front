@@ -17,21 +17,21 @@ export class VoteComponent implements OnInit {
   {        
     this._serv.afficherParticipant()
     .subscribe( coll => {this.listeParticipant = coll},
-      error =>{alert('oops gallerie')} );
+      err =>{alert(err.error)} );
    }
 
   votePlus(mat:string)
   {
     this._serv.modifierScore(new Vote(mat, true))
     .subscribe( coll => {},
-      error =>{alert('oops affichage')} );
+      err =>{alert(err.error)} );
   }
 
   voteMoins(mat:string)
   {
     this._serv.modifierScore(new Vote(mat, true))
     .subscribe( coll => {},
-      error =>{alert('oops affichage')} );
+      err =>{alert(err.error)} );
   }
 
 }
