@@ -1,4 +1,4 @@
-const baseUrl = 'https://espy-collegues-api.herokuapp.com'
+const baseUrl = 'https://espymydung.github.io/top-collegue-front'
 export const environment = {
   production: true,
 

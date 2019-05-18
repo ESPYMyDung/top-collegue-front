@@ -5,6 +5,7 @@ import { Utilisateur } from '../models/Utilisateur';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Vote } from '../models/Vote';
 
 @Injectable({
   providedIn: 'root'
@@ -34,13 +35,12 @@ export class DataService {
     .pipe(tap (col => this.action.next(col) ) ) //next c'est pour stocker la valeur, != iterator
   }
 
-  // - requete PATCH - 
-  modifierScore(mat:string, nvSCore:number)
+  // - requete POST - 
+  modifierScore(bulletin:Vote)
   {
-    return this._requete.patch<Participant>(`${environment.backendUrl}/${mat}`, nvSCore, {withCredentials : true});
+    return this._requete.post<Participant>(`${environment.backendUrl}/vote`, bulletin, {withCredentials : true});
   }
 
-  // - requete POST - 
    envoyerAuth(user:Utilisateur)
   {
     return this._requete.post<Utilisateur>(`${environment.baseUrl}/auth`, user, {withCredentials : true});

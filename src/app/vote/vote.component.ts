@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Participant } from '../models/Participant';
 import { DataService } from '../services/data.service';
+import { Vote } from '../models/Vote';
 
 @Component({
   selector: 'app-vote',
@@ -19,16 +20,16 @@ export class VoteComponent implements OnInit {
       error =>{alert('oops gallerie')} );
    }
 
-  votePlus(mat:string, score:number)
+  votePlus(mat:string)
   {
-    this._serv.modifierScore(mat,score+100)
+    this._serv.modifierScore(new Vote(mat, true))
     .subscribe( coll => {},
       error =>{alert('oops affichage')} );
   }
 
-  voteMoins(mat:string, score:number)
+  voteMoins(mat:string)
   {
-    this._serv.modifierScore(mat,score-100)
+    this._serv.modifierScore(new Vote(mat, true))
     .subscribe( coll => {},
       error =>{alert('oops affichage')} );
   }
